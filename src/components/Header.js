@@ -8,9 +8,8 @@ const Header = () => {
             </div>
             <div className="header__bottom">
                 <ul>
-                    <li> Patch </li>
-                    <li> Flight Number </li>
-                    <li> Flight Name</li>
+                    <li> Flight Name </li>
+                    <li> Flight Date</li>
                 </ul>
             </div>
         </div>
