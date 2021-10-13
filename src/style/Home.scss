@@ -2,6 +2,7 @@
     margin-top: 20px;
     align-content: center;
     padding: 35px;
+    text-align: center;
     
     input {
         width: 100%;
@@ -16,5 +17,10 @@
         color:white;
         margin-bottom: 30px;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    img {
+        height: 40vh;
+        margin-top: 10px;
     }
 } 
