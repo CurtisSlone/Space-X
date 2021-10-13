@@ -5,19 +5,22 @@
     margin: 0;
     padding: 0px;
 
+
     .header__top{
         width:100%;
-        display: flex;
         justify-content: space-between;
         background-color: black;
+        align-content: center;
+        margin: 0;
+        text-align:center;
         
         .header__logo {
             max-width: 150px;
-            display: inline-block;
+            display: inline;
+            position: relative;
+            
         }
-        p {
-            display: inline-block;
-        }
+        
     }
 
     .header__bottom {
