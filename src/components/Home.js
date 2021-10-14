@@ -1,23 +1,34 @@
 import '../style/Home.scss'
-import React, { useState, useEffect} from "react";
+import React, { useState } from "react";
+import axios from 'axios'
 
 
 const Home = () => {
 
 
     //Hook for input value
-    // Changes img based in input
-    const [value, setValue] = useState("")
+    // Changes img, name, date based in input
+    const [flightPatch, setFlightPatch] = useState("")
 
-    //OnChangeHandler
-    // Use to collect input from field, initiate API query,
-    // refresh img component to reflect patch from launch
 
-    const OnChangeHandler = e => {
-        useEffect(()=>{
-
-        })
-    }
+    
+    // Input field on change handler
+    const onChangeHandler = (e) => {
+            async function fetchData(){
+                const req = await axios({
+                    method: 'post',
+                    url: 'https://api.spacexdata.com/v4/launches/query',
+                    data: {
+                        query: {
+                            flight_number: { $eq: e.target.value},
+                        }
+                    }
+                })//End axios
+                setFlightPatch(req.data.docs[0].links.patch.small)
+            }
+            fetchData()
+    }//END onChangeHandler
+    
 
     return (
         <div className="content">
@@ -28,15 +39,14 @@ const Home = () => {
         </div>
         <input
             type="text"
-            value={value}
-            onChange={e=>setValue(e.target.value)}
+            onChange={onChangeHandler}
             placeHolder="000"
             // Get input
             // pass state to img
         />
         <img
             // https://i.imgur.com/{patch-small}.png
-            src="https://i.imgur.com/yPv13SR.png"
+            src={flightPatch}
             alt="flight patch"
         />
         </div>
