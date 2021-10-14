@@ -1,8 +1,24 @@
 import '../style/Home.scss'
 import React, { useState, useEffect} from "react";
-import axios from 'axios'
+
 
 const Home = () => {
+
+
+    //Hook for input value
+    // Changes img based in input
+    const [value, setValue] = useState("")
+
+    //OnChangeHandler
+    // Use to collect input from field, initiate API query,
+    // refresh img component to reflect patch from launch
+
+    const OnChangeHandler = e => {
+        useEffect(()=>{
+
+        })
+    }
+
     return (
         <div className="content">
             <div className="title__box">
@@ -12,6 +28,8 @@ const Home = () => {
         </div>
         <input
             type="text"
+            value={value}
+            onChange={e=>setValue(e.target.value)}
             placeHolder="000"
             // Get input
             // pass state to img
